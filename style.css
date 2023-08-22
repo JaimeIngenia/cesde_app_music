@@ -1,70 +1,42 @@
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: dotted 3px purple;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.art__box-j{
-    border: solid red 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 20px;
 }
 
-.menu{
-    position: absolute;
-    top: 3px ;
-    right: 3px;
-
-}
-#menu_titulos{
-    width: 100px;
-    height: 20px;
-    border: solid 2px blue;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.menu_padre{
-    display: flex;
-    flex-direction: column;
-    
+#imagenCancion{
+    width: 400px;
+    height: 400px;
+}
+.contenedorCanciones {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.control__box-j{
-
-    border: solid rgb(25, 0, 255) 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-
+.contenedorCanciones:hover{
+    background-color: #444;
 }
 
-.botones__control-j{
-    border: solid rgb(198, 20, 159) 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 23.9%;
-
-  
-}
-
-.pausa{
-    width: 50px;
-    border: solid green 3px;
-    padding: none;
-    display: flex;
-    justify-content: center;
-}
-
-.botones__jc{
-    border: none;
-    background: none;
-
+.imagenBotones {
+  width: 50px;
+  height: 50px;
 }
