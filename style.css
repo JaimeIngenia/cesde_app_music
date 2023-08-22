@@ -11,7 +11,26 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
+}
+
+.menu{
+    position: absolute;
+    top: 3px ;
+    right: 3px;
+
+}
+#menu_titulos{
+    width: 100px;
+    height: 20px;
+    border: solid 2px blue;
+}
+
+.menu_padre{
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .control__box-j{

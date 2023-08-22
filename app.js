@@ -45,7 +45,14 @@ nextButton.addEventListener("click", () => {
     loadSong(currentSongIndex);
 })();
 
+document.getElementById('menu_padre').style.display='none'
 
+function menu(){
+    alert('menu presionado')
+    document.getElementById('menu_padre').style.display='flex'
 
+}
 
-
+function span_reproducir(){
+  alert('span presionado')
+}
