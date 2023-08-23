@@ -37,7 +37,7 @@ const reproductor = document.getElementById("reproductor");
 const setCancion = () => {
   imagenCancion.src = canciones[cancionSeleccionada].image;
   reproductor.src = canciones[cancionSeleccionada].url;
-  nombreArtista.src = canciones[cancionSeleccionada].artist;
+  // nombreArtista.src = canciones[cancionSeleccionada].artist;
   nombreArtista.innerHTML = nombreArtista.src =
     canciones[cancionSeleccionada].artist;
 };
