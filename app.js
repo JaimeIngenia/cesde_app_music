@@ -3,7 +3,6 @@ const audioSource = document.getElementById("audioSource");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const songNameElement = document.getElementById("songName");
-const artistNameElement = document.getElementById("artistName");
 const songImgElement = document.getElementById("songImg")
 
 let currentSongIndex = 0;
@@ -16,7 +15,6 @@ async function loadSongs() {
 
 function displaySongInfo(index) {
     songNameElement.textContent = songs[index].name;
-    artistNameElement.textContent = songs[index].artist;
     songImgElement.src = songs[index].image
 }
 
