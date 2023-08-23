@@ -13,69 +13,69 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<div class="window">
-			<div class="uno">
+
+
+
+
+		<div class="art__box-j" id="songInfo">
+
+			<img id="imagenCancion"  class="gif-background" />
+			<div class="columna">
+				<h2 id="tituloCancion"></h2>
+				<h3 id="nombreArtista" ></h3>
+			</div>
+
+			<div class="control__box-j">
+				<div class="botones__control-j">
+		
+		
+				<button id="prevButton" class="botones__jc">
+					<img src="./images/btn_previous.svg" alt="" />
+				</button>
+		
+				<button class="botones" id="btn-reproducir-pausa">
+					<img class="imagenBotones" id="reproducir-pausa" src="./images/btn-reproducir.svg" alt="">
+				</button>
+		
+				<audio hidden id="reproductor" controls>
+					<source id="audioSource" src="" type="audio/mpeg" />
+					Tu navegador no soporta la reproducción de audio.
+				</audio>
+	
+				<button id="nextButton" class="botones__jc">
+					<img src="./images/next.svg" alt="" />
+				</button>
+		
+					<!-- <img class="pausa" src="/images/btn_pausa.svg"> -->
+				</div>
+			</div>
+
+
+	<button class="menu_Repadre">
 				<img
-					src="./images/cf6308b5-5ea2-49a3-923b-d6056b90ca5f.webp"
+					class="menu"
+					onclick="menu()"
+					src="./images/menu.svg"
 					alt=""
 				/>
-			</div>
+			</button>
 
-			<div class="art__box-j" id="songInfo">
-				<img src="./gift/feid.gif" class="gif-background" />
-				<h2 id="songName"></h2>
-				<img id="songImg" src="" />
-				<button>
-					<img
-						class="menu"
-						onclick="menu()"
-						src="./images/menu.svg"
-						alt=""
-					/>
-				</button>
-
-				<div class="menu_padre" id="menu_padre">
-					<span onclick="span_reproducir()" id="menu_titulos"
-						>titulo 1</span
-					>
-					<span id="menu_titulos">titulo 2</span>
-					<span id="menu_titulos">titulo 3</span>
-					<span id="menu_titulos">titulo 4</span>
-				</div>
-
-				<div class="control__box-j">
-					<div class="botones__control-j">
-						<button id="prevButton" class="botones__jc">
-							<img src="./images/btn_previous.svg" alt="" />
-						</button>
-						<!-- <button
-            id="playButton"
-                  class="botones__jc pausa"
-                  onclick="pausa_juan()"
-                  >
-                <img src="./images/btn_pausa.svg" alt="">
-            </button> -->
-
-						<!-- <audio id="audioPlayer" src="./audios/y2mate.com - Eminem  Lose Yourself Lyrics.mp3"></audio> -->
-						<audio id="audioPlayer" controls>
-							<source id="audioSource" src="" type="audio/mpeg" />
-							Tu navegador no soporta la reproducción de audio.
-						</audio>
-						<button id="nextButton" class="botones__jc">
-							<img src="./images/next.svg" alt="" />
-						</button>
-
-						<!-- <img class="pausa" src="/images/btn_pausa.svg"> -->
-					</div>
-				</div>
-			</div>
-
-			<div class="tres">
-
-            </div>
+	<div class="menu_padre" id="menu_padre">
+		<span value="0" onclick="span_reproducir(0)" id="menu_titulos"
+		>Normal</span
+		>
+		<span value="1" onclick="span_reproducir(1)"  id="menu_titulos">Negro</span>
+		<span value="2" onclick="span_reproducir(2)" id="menu_titulos">Mientras me curo del cora</span>
+		<span value="3" onclick="span_reproducir(3)" id="menu_titulos">Instagram</span>
+	</div>
 
 		</div>
+      
 
+      
+
+
+    
 		<script src="./app.js"></script>
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

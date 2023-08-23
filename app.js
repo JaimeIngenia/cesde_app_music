@@ -1,47 +1,106 @@
-const audioPlayer = document.getElementById("audioPlayer");
-const audioSource = document.getElementById("audioSource");
-const prevButton = document.getElementById("prevButton");
-const nextButton = document.getElementById("nextButton");
-const songNameElement = document.getElementById("songName");
-const songImgElement = document.getElementById("songImg")
 
-let currentSongIndex = 0;
-let songs;
 
-async function loadSongs() {
-    const response = await fetch("songs.json");
-    songs = await response.json();
-}
+const botonAnterior = document.getElementById("prevButton");
+const botonSiguiente = document.getElementById("nextButton");
 
-function displaySongInfo(index) {
-    songNameElement.textContent = songs[index].name;
-    songImgElement.src = songs[index].image
-}
+const botonReproducirPausa = document.getElementById("btn-reproducir-pausa");
+const imagenReproducirYPausa = document.getElementById("reproducir-pausa");//Preguntasandra
 
-async function loadSong(index) {
-    if (index >= 0 && index < songs.length) {
-        audioSource.src = songs[index].url;
-        audioPlayer.load();
-        audioPlayer.play();
-        currentSongIndex = index;
-        displaySongInfo(index);
-    }
-}
 
-prevButton.addEventListener("click", () => {
-    currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-    loadSong(currentSongIndex);
+const imagenCancion = document.getElementById("imagenCancion");
+const tituloCancion = document.getElementById("tituloCancion");
+const nombreArtista = document.getElementById("nombreArtista");
+const imagenFondo = document.getElementById("imagenFondo");
+
+
+
+const reproductor = document.getElementById("reproductor");
+
+const canciones = [
+  {
+    name: "Normal",
+    url: "./audios/Feid - Normal (Official Video).mp3",
+    artist: "Feid",
+    image: "./gift/feid.gif",
+    imagenFondo: "./images/caratula1.svg"
+
+  },
+  {
+    name: "Negro",
+    url: "./audios/J. Balvin - Negro (Animated Video).mp3",
+    artist: "Balvin",
+    image: "./gift/jBalvin.gif",
+    imagenFondo:"./images/caratula2.svg"
+  },
+  {
+    name: "MIENTRAS ME CURO DEL CORA",
+    url: "./audios/KAROL G - MIENTRAS ME CURO DEL CORA.mp3",
+    artist: "KAROL G",
+    image: "./gift/karolG.webp",
+    imagenFondo:"./images/caratula3.svg"
+  },
+  {
+    name: "Instagram",
+    url: "./audios/bless.mp3",
+    artist: "bless",
+    image:  "./gift/bless.gif",
+    imagenFondo:"./images/caratula4.svg"
+  },
+];
+
+
+// ***********************
+
+
+
+const setCancion = () => {
+  imagenCancion.src = canciones[cancionSeleccionada].image;
+  // imagenFondo.src = canciones[cancionSeleccionada].imagenFondo;
+  reproductor.src = canciones[cancionSeleccionada].url;
+  nombreArtista.innerHTML = nombreArtista.src =
+  canciones[cancionSeleccionada].artist;
+  tituloCancion.innerHTML = nombreArtista.src =
+  canciones[cancionSeleccionada].name;
+
+
+};
+
+let cancionSeleccionada = 0;
+setCancion();
+
+
+botonSiguiente.addEventListener("click", () => {
+  if(cancionSeleccionada>= canciones.length-1){
+      cancionSeleccionada = 0;
+  } else{
+
+      cancionSeleccionada++;
+  }
+setCancion();
 });
 
-nextButton.addEventListener("click", () => {
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
-    loadSong(currentSongIndex);
+botonAnterior.addEventListener("click", () => {
+if (cancionSeleccionada <= 0) {
+  cancionSeleccionada = canciones.length - 1;
+} else {
+  cancionSeleccionada--;
+}
+setCancion();
 });
 
-(async () => {
-    await loadSongs();
-    loadSong(currentSongIndex);
-})();
+botonReproducirPausa.addEventListener("click", ()=> {
+  if(reproductor.paused){
+
+      reproductor.play();
+      imagenReproducirYPausa.src = "./images/btn-pausa.svg";    
+  }else{
+      reproductor.pause();
+      imagenReproducirYPausa.src = "./images/btn-reproducir.svg";
+  }
+});
+
+
+//************************* */
 
 
 
@@ -50,11 +109,19 @@ nextButton.addEventListener("click", () => {
 document.getElementById('menu_padre').style.display='none'
 
 function menu(){
-    alert('menu presionado')
+    // alert('menu presionado')
     document.getElementById('menu_padre').style.display='flex'
 
 }
 
-function span_reproducir(){
-  alert('span presionado')
+const span_reproducir = (idx)  => {
+  cancionSeleccionada = idx;
+  setCancion();
+  // alert('span presionado')
+  // reproductor.src = canciones[valorSapn].url;
 }
+
+// const seleccionarCancion = (idx) => {
+//   cancionSeleccionada = idx;
+//   setCancion();
+// }
