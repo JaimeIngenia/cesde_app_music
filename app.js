@@ -1,62 +1,83 @@
-const audioPlayer = document.getElementById("audioPlayer");
-const audioSource = document.getElementById("audioSource");
-const prevButton = document.getElementById("prevButton");
-const nextButton = document.getElementById("nextButton");
-const songNameElement = document.getElementById("songName");
-const artistNameElement = document.getElementById("artistName");
-const songImgElement = document.getElementById("songImg")
+const canciones = [
+  {
+    name: "Amargura",
+    url: "./audios/amargura-letra-lyrics.mp3",
+    artist: "Karol G",
+    image: "./imagenes/caratulaAmargura.png",
+  },
+  {
+    name: "Karmika",
+    url: "./audios/y2mate.com - KÁRMIKA.mp3",
+    artist: "Karol G",
+    image: "./imagenes/caratulaKarmika.png",
+  },
+  {
+    name: "Carolina",
+    url: "./audios/y2mate.com - KAROL G  Carolina Visualizer.mp3",
+    artist: "Karol G",
+    image: "./imagenes/caratulaCarolina.png",
+  },
+  {
+    name: "PeroTu",
+    url: "./audios/y2mate.com - KAROL G Quevedo  Pero Tú Visualizer.mp3",
+    artist: "Karol G",
+    image: "./imagenes/caratulaPeroTu.png",
+  },
+];
 
-let currentSongIndex = 0;
-let songs;
+const botonAnterior = document.getElementById("btn-anterior");
+const botonSiguiente = document.getElementById("btn-siguiente");
+const botonReproducirPausa = document.getElementById("btn-reproducir-pausa");
+const imagenReproducirYPausa = document.getElementById("reproducir-pausa");
+const nombreCancion = document.getElementById("nombreCancion");
+const nombreArtista = document.getElementById("nombreArtista");
+const imagenCancion = document.getElementById("imagenCancion");
+const reproductor = document.getElementById("reproductor");
 
-async function loadSongs() {
-    const response = await fetch("songs.json");
-    songs = await response.json();
+const setCancion = () => {
+  imagenCancion.src = canciones[cancionSeleccionada].image;
+  reproductor.src = canciones[cancionSeleccionada].url;
+  nombreArtista.src = canciones[cancionSeleccionada].artist;
+  nombreArtista.innerHTML = nombreArtista.src =
+    canciones[cancionSeleccionada].artist;
+    nombreCancion.innerHTML = nombreCancion.src = canciones[cancionSeleccionada].name;
+};
+
+let cancionSeleccionada = 0;
+setCancion();
+
+const seleccionarCancion = (idx) => {
+  cancionSeleccionada = idx;
+  setCancion();
 }
 
-function displaySongInfo(index) {
-    songNameElement.textContent = songs[index].name;
-    artistNameElement.textContent = songs[index].artist;
-    songImgElement.src = songs[index].image
-}
 
-async function loadSong(index) {
-    if (index >= 0 && index < songs.length) {
-        audioSource.src = songs[index].url;
-        audioPlayer.load();
-        audioPlayer.play();
-        currentSongIndex = index;
-        displaySongInfo(index);
+ function pasarASiguienteCancion(){
+    if(cancionSeleccionada>= canciones.length-1){
+        cancionSeleccionada = 0;
+    } else{
+
+        cancionSeleccionada++;
     }
+  setCancion();
 }
 
-prevButton.addEventListener("click", () => {
-    currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-    loadSong(currentSongIndex);
-});
-
-nextButton.addEventListener("click", () => {
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
-    loadSong(currentSongIndex);
-});
-
-(async () => {
-    await loadSongs();
-    loadSong(currentSongIndex);
-})();
-
-
-
-
-
-document.getElementById('menu_padre').style.display='none'
-
-function menu(){
-    alert('menu presionado')
-    document.getElementById('menu_padre').style.display='flex'
-
+function pasarAAnteriorCancion(){
+  if (cancionSeleccionada <= 0) {
+    cancionSeleccionada = canciones.length - 1;
+  } else {
+    cancionSeleccionada--;
+  }
+  setCancion();
 }
 
-function span_reproducir(){
-  alert('span presionado')
+function reproducirOPausar(){
+    if(reproductor.paused){
+
+        reproductor.play();
+        imagenReproducirYPausa.src = "./imagenes/btn-pausa.svg";    
+    }else{
+        reproductor.pause();
+        imagenReproducirYPausa.src = "./imagenes/btn-reproducir.svg";
+    }
 }

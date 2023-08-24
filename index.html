@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Music App</h1>
-
-    <div class="art__box-j" id="songInfo">
-        <h2 id="songName"></h2>
-        <p id="artistName"></p>
-        <img id="songImg" src="">
-        <button>
-            <img class="menu" onclick="menu()" src="./images/menu.svg" alt="">
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="left-panel">
+          <img src="./imgJuanjo/karol.svg" alt="">
+        </div>
+        <div class="right-panel">
+      <div class="caratula" id="caratula">
+        <div class="infoCancion">
+          <h2 id="nombreCancion"></h2>
+          <p id="nombreArtista" ></p>
+        </div>
+        <img id="imagenCancion" src="" />
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-button">
+          <img src="./imgJuanjo/drop.svg" alt="">
         </button>
-        <div class="menu_padre" id="menu_padre">
-            <span onclick="span_reproducir()" id="menu_titulos">titulo 1</span>
-            <span id="menu_titulos">titulo 2</span>
-            <span id="menu_titulos">titulo 3</span>
-            <span id="menu_titulos">titulo 4</span>
+        <div class="dropdown-content">
+          <a href="#" onclick="seleccionarCancion(0)">Amargura</a>
+          <a href="#" onclick="seleccionarCancion(1)">Karmika</a>
+          <a href="#" onclick="seleccionarCancion(2)">Carolina</a>
+          <a href="#" onclick="seleccionarCancion(3)">Pero Tu</a>
         </div>
-    </div>
+      </div>
 
-    <div class="control__box-j">
-
-        <div class="botones__control-j">
-
-            <button 
-                id="prevButton"
-                class="botones__jc"
-
-            >
-                <img src="./images/btn_previous.svg" alt="">
-            </button>
-
-            <!-- <button
-            id="playButton"
-                  class="botones__jc pausa"
-                  onclick="pausa_juan()"
-                  >
-                <img src="./images/btn_pausa.svg" alt="">
-            </button> -->
-
-            <!-- <audio id="audioPlayer" src="./audios/y2mate.com - Eminem  Lose Yourself Lyrics.mp3"></audio> -->
-            <audio id="audioPlayer" controls>
-                <source id="audioSource" src="" type="audio/mpeg">
-                Tu navegador no soporta la reproducción de audio.
-            </audio>
-            
-            <button 
-            id="nextButton"
-            class="botones__jc"
-
-            >
-                <img src="./images/next.svg" alt="">
-            </button>
-
-            <!-- <img class="pausa" src="/images/btn_pausa.svg"> -->
-        </div>
-
-    </div>
-    
-
-
+      <div class="contenedorCanciones">
+        <button
+          class="botones"
+          id="btn-anterior"
+          onclick="pasarAAnteriorCancion()"
+        >
+          <img class="imagenBotones" src="./imgJuanjo/anterior.svg" alt="" />
+        </button>
+        <button
+          class="botones"
+          id="btn-reproducir-pausa"
+          onclick="reproducirOPausar()"
+        >
+          <img
+            class="imagenBotones"
+            id="reproducir-pausa"
+            src="./imgJuanjo/play.svg"
+            alt=""
+          />
+        </button>
+        <audio id="reproductor" src="">
+          Tu navegador no soporta la reproducción de audio.
+        </audio>
+        <button
+          class="botones"
+          id="btn-siguiente"
+          onclick="pasarASiguienteCancion()"
+        >
+          <img class="imagenBotones" src="./imgJuanjo/siguiente.svg" alt="" />
+        </button>
+      </div>
+      <div class="gift">
+        <img class="giftt" src="./imgJuanjo/giphy.gif" alt="">
+      </div>
+    </main>
+  </div>
+</div>
 
     <script src="./app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
